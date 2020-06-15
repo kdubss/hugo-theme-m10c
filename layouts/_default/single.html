@@ -1,7 +1,14 @@
 {{ define "main" }}
   <article class="post">
+
     <header class="post-header">
+      {{ partial "navbar.html" . }}
+
+      <hr />
+      <br />
+
       <h1 class ="post-title">{{ .Title }}</h1>
+
       <div class="post-meta">
         <div>
           {{ partial "icon.html" (dict "ctx" $ "name" "calendar") }}
@@ -11,7 +18,9 @@
           {{ partial "icon.html" (dict "ctx" $ "name" "clock") }}
           {{ .ReadingTime }} min read
         </div>
+
         {{- with .Params.tags -}}
+
         <div>
           {{ partial "icon.html" (dict "ctx" $ "name" "tag") }}
           {{ range . -}}
@@ -20,14 +29,19 @@
             {{- end -}}
           {{- end -}}
         </div>
+
         {{- end -}}
       </div>
+
     </header>
+
     <div class="post-content">
       {{ .Content }}
     </div>
+
     <div class="post-footer">
       {{ template "_internal/disqus.html" . }}
     </div>
+
   </article>
 {{ end }}

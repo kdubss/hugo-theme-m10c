@@ -2,7 +2,10 @@
   <article>
     {{ partial "navbar.html" . }}
 
-    <h1>{{ .Title }}</h1>
+    <hr />
+    <br />
+
+    <!--<h1>{{ .Title }}</h1>-->
 
     <ul class="posts-list">
       {{ range $index, $element := .Paginator.Pages }}
